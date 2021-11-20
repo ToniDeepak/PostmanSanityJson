@@ -1,0 +1,3379 @@
+{
+	"info": {
+		"_postman_id": "f908ceb6-d0fe-445e-9f0b-b6788a0b2cbe",
+		"name": "Trunk_EUHAWE3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Application Launch",
+			"item": [
+				{
+					"name": "Application Launch - Call 1 - GetUiTranslations",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "PUID",
+								"value": "{{userName}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/GetUiTranslations?languageCode",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"GetUiTranslations"
+							],
+							"query": [
+								{
+									"key": "languageCode",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Application Launch - Call 2 - GetReportTranslationLanguageList",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Validate list of Language Code\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].LanguageCode).to.eql(\"en\");",
+									"    pm.expect(jsonData[1].LanguageCode).to.eql(\"de\");",
+									"    pm.expect(jsonData[2].LanguageCode).to.eql(\"fr\");",
+									"    pm.expect(jsonData[3].LanguageCode).to.eql(\"nl\");",
+									"    pm.expect(jsonData[4].LanguageCode).to.eql(\"es\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								},
+								{
+									"key": "domain",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/SettingsManagement/api/GetReportTranslationLanguageList",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"SettingsManagement",
+								"api",
+								"GetReportTranslationLanguageList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Application Launch - Call 3- GetUiTranslations?languageCode=en",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								},
+								{
+									"key": "domain",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/GetUiTranslations?languageCode=en",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"GetUiTranslations"
+							],
+							"query": [
+								{
+									"key": "languageCode",
+									"value": "en"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Application Launch - Call 4 - GetCounters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								},
+								{
+									"key": "domain",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/GetCounters/",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"GetCounters",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Manual Invoice",
+			"item": [
+				{
+					"name": "Manual Invoice - Call 1 - GetInvoiceSettings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "domain",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/GetInvoiceSettings",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"GetInvoiceSettings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Invoice - Call 2 - GetCcfsByCustomer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/GetCcfsByCustomer/ADE000367",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"GetCcfsByCustomer",
+								"ADE000367"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Invoice - Call 3 - GetCcfVersionWithCurrency",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/GetCcfVersionWithCurrency/CCF1",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"GetCcfVersionWithCurrency",
+								"CCF1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Invoice - Call 4 - GetContactsByCustomer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/GetContactsByCustomer/A00199322VXT",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"GetContactsByCustomer",
+								"A00199322VXT"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Invoice - Call 5 - CreateAndReviseManualInvoice",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.environment.set(\"gInvoiceCode\", jsonData.InvoiceCode);",
+									"",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n   \"TemporaryNumber\":null,\r\n   \"InvoiceTemplateCode\":\"NSIT_DE_ENV_01\",\r\n   \"InvoiceLanguageCode\":\"en\",\r\n   \"BillTo\":{  \r\n      \"AccountCode\":\"A00199322VXT\",\r\n      \"Type\":0\r\n   },\r\n   \"Ccf\":{  \r\n      \"Code\":\"CCF1\",\r\n      \"Currency\":\"EUR\",\r\n      \"YearEndRebateApplied\":false,\r\n      \"EarlyPaymentDiscount\":0,\r\n      \"PaymentMethods\":null,\r\n      \"PaymentPeriod\":0\r\n   },\r\n   \"ServiceRecipient\":{  \r\n      \"AccountCode\":\"A00199322VXT\",\r\n      \"VATable\":false,\r\n      \"RegisteredCountry\":null,\r\n      \"TaxZone\":null\r\n   },\r\n   \"OriginalInvoiceRecipient\":{  \r\n      \"ContactCode\":\"C00032504202R\",\r\n      \"SendingChannel\":1,\r\n      \"AddressCode\":null,\r\n      \"InternalRecipientCode\":null,\r\n      \"InternalDocumentId\":null,\r\n      \"DmaDocumentId\":null,\r\n      \"SendingCounter\":null,\r\n      \"Document\":null,\r\n      \"LastName\":null,\r\n      \"FirstName\":null,\r\n      \"EmailAddress\":null,\r\n      \"LinkedAccountInternalName\":null,\r\n      \"PostalAddress\":null\r\n   },\r\n   \"CopyRecipients\":[  \r\n      {  \r\n         \"ContactCode\":\"C00032504202R\",\r\n         \"SendingChannel\":4,\r\n         \"AddressCode\":null,\r\n         \"InternalRecipientCode\":null,\r\n         \"InternalDocumentId\":null,\r\n         \"DmaDocumentId\":null,\r\n         \"SendingCounter\":null,\r\n         \"Document\":null,\r\n         \"LastName\":null,\r\n         \"FirstName\":null,\r\n         \"EmailAddress\":null,\r\n         \"LinkedAccountInternalName\":null,\r\n         \"PostalAddress\":null\r\n      },\r\n      {  \r\n         \"ContactCode\":\"C00032504202R\",\r\n         \"SendingChannel\":2,\r\n         \"AddressCode\":\"C00032504202RAdr01\",\r\n         \"InternalRecipientCode\":null,\r\n         \"InternalDocumentId\":null,\r\n         \"DmaDocumentId\":null,\r\n         \"SendingCounter\":null,\r\n         \"Document\":null,\r\n         \"LastName\":null,\r\n         \"FirstName\":null,\r\n         \"EmailAddress\":null,\r\n         \"LinkedAccountInternalName\":null,\r\n         \"PostalAddress\":null\r\n      }\r\n\r\n   ],\r\n   \"Asm\":null,\r\n   \"Am\":null,\r\n   \"ServiceDelivery\":{  \r\n      \"StartDate\":\"2019-10-28T00:00:00+05:30\",\r\n      \"EndDate\":\"2019-10-28T00:00:00+05:30\"\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/CreateAndReviseManualInvoice",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"CreateAndReviseManualInvoice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Invoice - Call 6 - ReviseInvoice",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "WJY5",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n   \"InvoiceCode\":\"{{gInvoiceCode}}\",\r\n   \"OperatorType\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/ReviseInvoice",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"ReviseInvoice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Invoice - Call 7 - 1 - CreateOrUpdateInvoiceLine",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.environment.set(\"invoiceLineCode1\", jsonData.CreateOrUpdatedLine.InvoiceLineCode);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "WJY5",
+								"type": "text"
+							},
+							{
+								"key": "Labsite",
+								"value": "EUHAWE3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n   \"InvoiceLineCode\":\"00000000-0000-0000-0000-000000000000\",\r\n   \"InvoiceCode\":\"{{gInvoiceCode}}\",\r\n   \"Description\":\"Test1\",\r\n   \"Quantity\":10,\r\n   \"UnitPrice\":50.90,\r\n   \"Ttt\":0,\r\n   \"AxSalesCategory\":0,\r\n   \"Bu\":null,\r\n   \"SubBu\":null,\r\n   \"SampleCode\":null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/CreateOrUpdateManualInvoiceLine",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"CreateOrUpdateManualInvoiceLine"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Invoice - Call 7 - 2 - CreateOrUpdateInvoiceLine",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "E4ZI",
+								"type": "text"
+							},
+							{
+								"key": "Labsite",
+								"value": "GENAURA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n   \"InvoiceLineCode\":\"{{invoiceLineCode1}}\",\r\n   \"InvoiceCode\":\"{{gInvoiceCode}}\",\r\n   \"Description\":\"Test1\",\r\n   \"Quantity\":10,\r\n   \"UnitPrice\":50.90,\r\n   \"Ttt\":3,\r\n   \"AxSalesCategory\":1,\r\n   \"Bu\":\"4-193\",\r\n   \"SubBu\":\"5-00890\",\r\n   \"SampleCode\":null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/CreateOrUpdateManualInvoiceLine",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"CreateOrUpdateManualInvoiceLine"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Invoice - Call 8 - 1 - GetInvoiceDetails",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "WJY5",
+								"type": "text"
+							},
+							{
+								"key": "Labsite",
+								"value": "EUHAWE3",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/GetInvoiceDetails/{{gInvoiceCode}}",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"GetInvoiceDetails",
+								"{{gInvoiceCode}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Invoice - Call 9 - 1 - ShowInvoicePreview",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "E4ZI",
+								"type": "text"
+							},
+							{
+								"key": "Labsite",
+								"value": "EUHAWE3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://eu50apvd396/IPWQ4/GENAURA/IPWCoreServices/1.0/IPW/InvoiceProcessing/api/ShowInvoicePreview?invoiceCode={{gInvoiceCode}}&invoiceType=Manual&invoiceStatus=InRevision",
+							"protocol": "http",
+							"host": [
+								"eu50apvd396"
+							],
+							"path": [
+								"IPWQ4",
+								"GENAURA",
+								"IPWCoreServices",
+								"1.0",
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"ShowInvoicePreview"
+							],
+							"query": [
+								{
+									"key": "invoiceCode",
+									"value": "{{gInvoiceCode}}"
+								},
+								{
+									"key": "invoiceType",
+									"value": "Manual"
+								},
+								{
+									"key": "invoiceStatus",
+									"value": "InRevision"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Invoice - Call 10 - SetTemporaryInvoiceToCompleted",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "WJY5",
+								"type": "text"
+							},
+							{
+								"key": "Labsite",
+								"value": "EUHAWE3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"InvoiceCode\": \"{{gInvoiceCode}}\",\n    \"OperatorType\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/SetTemporaryInvoiceToCompleted",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"SetTemporaryInvoiceToCompleted"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Invoice - Call 8 - 2 - GetInvoiceDetails",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "WJY5",
+								"type": "text"
+							},
+							{
+								"key": "Labsite",
+								"value": "EUHAWE3",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/GetInvoiceDetails/{{gInvoiceCode}}",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"GetInvoiceDetails",
+								"{{gInvoiceCode}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Invoice - Call 9 - 2 - ShowInvoicePreview",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "WJY5",
+								"type": "text"
+							},
+							{
+								"key": "Labsite",
+								"value": "EUHAWE3",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/ShowInvoicePreview?invoiceCode={{gInvoiceCode}}&invoiceType=Manual&invoiceStatus=InRevision",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"ShowInvoicePreview"
+							],
+							"query": [
+								{
+									"key": "invoiceCode",
+									"value": "{{gInvoiceCode}}"
+								},
+								{
+									"key": "invoiceType",
+									"value": "Manual"
+								},
+								{
+									"key": "invoiceStatus",
+									"value": "InRevision"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Invoice - Call 11 - StartManualValidation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "WJY5",
+								"type": "text"
+							},
+							{
+								"key": "Labsite",
+								"value": "EUHAWE3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"InvoiceCode\": \"{{gInvoiceCode}}\",\n    \"OperatorType\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/StartManualValidation",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"StartManualValidation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Invoice - Call 7 - 3 - CreateOrUpdateInvoiceLine",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.environment.set(\"invoiceLineCode2\", jsonData.CreateOrUpdatedLine.InvoiceLineCode);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Puid",
+								"type": "text",
+								"value": "WJY5"
+							},
+							{
+								"key": "Labsite",
+								"type": "text",
+								"value": "EUHAWE3"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n   \"InvoiceLineCode\":\"00000000-0000-0000-0000-000000000000\",\r\n   \"InvoiceCode\":\"{{gInvoiceCode}}\",\r\n   \"Description\":\"Test2\",\r\n   \"Quantity\":10,\r\n   \"UnitPrice\":50.90,\r\n   \"Ttt\":0,\r\n   \"AxSalesCategory\":0,\r\n   \"Bu\":null,\r\n   \"SubBu\":null,\r\n   \"SampleCode\":null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/CreateOrUpdateManualInvoiceLine",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"CreateOrUpdateManualInvoiceLine"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Invoice - Call 7 - 4 - CreateOrUpdateInvoiceLine",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "E4ZI",
+								"type": "text"
+							},
+							{
+								"key": "Labsite",
+								"value": "GENAURA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n   \"InvoiceLineCode\":\"{{invoiceLineCode2}}\",\r\n   \"InvoiceCode\":\"{{gInvoiceCode}}\",\r\n   \"Description\":\"Test2\",\r\n   \"Quantity\":10,\r\n   \"UnitPrice\":50.90,\r\n   \"Ttt\":3,\r\n   \"AxSalesCategory\":1,\r\n   \"Bu\":\"4-193\",\r\n   \"SubBu\":\"5-00890\",\r\n   \"SampleCode\":null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/CreateOrUpdateManualInvoiceLine",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"CreateOrUpdateManualInvoiceLine"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Invoice - Call 8 - 3 - GetInvoiceDetails",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "WJY5",
+								"type": "text"
+							},
+							{
+								"key": "Labsite",
+								"value": "EUHAWE3",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/GetInvoiceDetails/{{gInvoiceCode}}",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"GetInvoiceDetails",
+								"{{gInvoiceCode}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Invoice - Call 9 - 3 - ShowInvoicePreview",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "WJY5",
+								"type": "text"
+							},
+							{
+								"key": "Labsite",
+								"value": "EUHAWE3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Envelope xmlns=\"http://schemas.microsoft.com/dynamics/2011/01/documents/Message\">\r\n    <Header>\r\n        <MessageId>d11ea350-099b-412e-b231-2a7229393548</MessageId>\r\n        <PartitionKey>fr</PartitionKey>\r\n        <Company>fm1</Company>\r\n        <Action>www.eurofins.com/IBRA/GLCLIMSInvoiceStagingService/create</Action>\r\n    </Header>\r\n    <Body>\r\n        <MessageParts>\r\n            <GLCLIMSInvoiceStaging xmlns=\"http://schemas.microsoft.com/dynamics/2008/01/documents/GLCLIMSInvoiceStaging\">\r\n                <Header xmlns=\"http://schemas.microsoft.com/dynamics/2008/01/documents/GLCLIMSInvoiceStaging\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" class=\"entity\">\r\n                    <BillToReference>A00199396C59</BillToReference>\r\n                    <CCFCode>CCFTR000HF</CCFCode>\r\n                    <CreditNoteReasonCode i:nil=\"true\" />\r\n                    <CurrencyCode>EUR</CurrencyCode>\r\n                    <DMADocumentId>f4feae6e-3582-4e97-aa0d-71fc6ac58c6e</DMADocumentId>\r\n                    <EarlyPaymentDiscountCode i:nil=\"true\" />\r\n                    <EurofinsCompanyCode>CGL005</EurofinsCompanyCode>\r\n                    <IncludeTax>No</IncludeTax>\r\n                    <IntercoOrderBUcode i:nil=\"true\" />\r\n                    <InvoiceDate>2021-11-15</InvoiceDate>\r\n                    <InvoiceId>GENAURA21A0008108</InvoiceId>\r\n                    <InvoiceRecipient>C000325145O3K</InvoiceRecipient>\r\n                    <InvoiceReferenceDate i:nil=\"true\" />\r\n                    <InvoiceType>Invoice</InvoiceType>\r\n                    <LIMSOrderId i:nil=\"true\" />\r\n                    <OrderMasterContact i:nil=\"true\" />\r\n                    <PaymentDueDate>2021-12-15</PaymentDueDate>\r\n                    <PaymentMethods i:nil=\"true\" />\r\n                    <PaymentPeriod>N030</PaymentPeriod>\r\n                    <PurchOrderFormNum>N/A</PurchOrderFormNum>\r\n                    <ServiceRecipient i:nil=\"true\" />\r\n                    <SettlementId i:nil=\"true\" />\r\n                    <TotalAmount>10.00</TotalAmount>\r\n                    <TotalTaxAmount>0.00</TotalTaxAmount>\r\n                    <WorkerSalesResponsible>FIG7</WorkerSalesResponsible>\r\n                    <Lines class=\"entity\">\r\n                        <AXSalesCategory>S01</AXSalesCategory>\r\n                        <DefaultDimension xmlns:a=\"http://schemas.microsoft.com/dynamics/2008/01/sharedtypes\">\r\n                            <a:Values>\r\n                                <a:Value>\r\n                                    <a:Name>SUBBU</a:Name>\r\n                                    <a:Value>5-GL0004</a:Value>\r\n                                </a:Value>\r\n                            </a:Values>\r\n                        </DefaultDimension>\r\n                        <InvoicableItemNumber>1</InvoicableItemNumber>\r\n                        <LineAmount>10.00</LineAmount>\r\n                        <SalesQuantity>1</SalesQuantity>\r\n                        <TaxAmount>0.00</TaxAmount>\r\n                        <TaxCode>EU-O</TaxCode>\r\n                    </Lines>\r\n                </Header>\r\n            </GLCLIMSInvoiceStaging>\r\n        </MessageParts>\r\n    </Body>\r\n</Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/ShowInvoicePreview?invoiceCode={{gInvoiceCode}}&invoiceType=Manual&invoiceStatus=InRevision",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"ShowInvoicePreview"
+							],
+							"query": [
+								{
+									"key": "invoiceCode",
+									"value": "{{gInvoiceCode}}"
+								},
+								{
+									"key": "invoiceType",
+									"value": "Manual"
+								},
+								{
+									"key": "invoiceStatus",
+									"value": "InRevision"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Invoice - Call 12 - FinishManualValidation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "E4ZI",
+								"type": "text"
+							},
+							{
+								"key": "Labsite",
+								"value": "GENAURA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"InvoiceCode\": \"{{gInvoiceCode}}\",\n    \"OperatorType\": 1\n}"
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/FinishManualValidation",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"FinishManualValidation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Invoice - Call 8 - 4 - GetInvoiceDetails",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "domain",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "WJY5",
+								"type": "text"
+							},
+							{
+								"key": "Labsite",
+								"value": "EUHAWE3",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/GetInvoiceDetails/{{gInvoiceCode}}",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"GetInvoiceDetails",
+								"{{gInvoiceCode}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manul Invoice - Call 13 - StartIssueInvoiceProcess",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true,
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Labsite",
+								"value": " GENAURA",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": " E4ZI",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": " application/json; charset=utf-8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"InvoiceCode\": \"{{gInvoiceCode}}\",\n    \"OperatorType\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/StartIssueInvoiceProcess",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"StartIssueInvoiceProcess"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Invoice - Call 8 - 5 - GetInvoiceDetails",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"manualInvoiceNumber1\", jsonData.FinalInvoiceNumber);",
+									"",
+									"pm.test(\"Manual Invoice Final number: \"+ jsonData.FinalInvoiceNumber, function () { });",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "domain",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Puid",
+								"type": "text",
+								"value": "WJY5"
+							},
+							{
+								"key": "Labsite",
+								"type": "text",
+								"value": "EUHAWE3"
+							}
+						],
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/GetInvoiceDetails/{{gInvoiceCode}}",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"GetInvoiceDetails",
+								"{{gInvoiceCode}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Manual Credit Note",
+			"item": [
+				{
+					"name": "Manual Credit Note - 1 - CreateStandaloneManualCreditNote",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.environment.set(\"gCreditNoteCode\", jsonData.CreditNoteCode);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Labsite",
+								"value": " EUHAWE3",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "{{userName}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"BillToAccountCode\": \"A00199322VXT\",\n    \"ServiceRecipientAccountCode\": \"A00199322VXT\",\n    \"CcfCode\": \"CCF1\",\n    \"InvoiceTemplateCode\": \"NSIT_DE_ENV_01\",\n    \"InvoiceLanguage\": \"en\",\n    \"CreditNoteReason\": 8,\n    \"CreatorCode\": null,\n    \"CreatorType\": \"PersonalAccount\",\n    \"LinkedInvoiceCode\": null,\n    \"CreditNoteReasonDetails\": \"Test credit Note\",\n    \"LinkedInvoiceBu\": null,\n    \"LinkedInvoiceSubBu\": null,\n    \"LinkedInvoiceTtt\": null,\n    \"Asm\": null,\n    \"Am\": null,\n    \"ServiceDelivery\": {\n        \"StartDate\": \"2019-11-11T00:00:00+05:30\",\n        \"EndDate\": null\n    },\n    \"InvoiceCopyRecipient\": [\n      {  \n         \"ContactCode\":\"C00032504202R\",\n         \"SendingChannel\":1,\n         \"AddressCode\":\"C00032504202RAdr01\",\n         \"InternalRecipientCode\":null,\n         \"InternalDocumentId\":null,\n         \"DmaDocumentId\":null,\n         \"SendingCounter\":null,\n         \"Document\":null,\n         \"LastName\":null,\n         \"FirstName\":null,\n         \"EmailAddress\":null,\n         \"LinkedAccountInternalName\":null,\n         \"PostalAddress\":null\n      },\n      {  \n         \"ContactCode\":\"C00032504202R\",\n         \"SendingChannel\":4,\n         \"AddressCode\":null,\n         \"InternalRecipientCode\":null,\n         \"InternalDocumentId\":null,\n         \"DmaDocumentId\":null,\n         \"SendingCounter\":null,\n         \"Document\":null,\n         \"LastName\":null,\n         \"FirstName\":null,\n         \"EmailAddress\":null,\n         \"LinkedAccountInternalName\":null,\n         \"PostalAddress\":null\n      }\n    \t],\n    \"OriginalRecipientContact\": {\n        \"ContactCode\": \"C00032504202R\",\n        \"SendingChannel\": 2,\n        \"AddressCode\": null,\n        \"InternalRecipientCode\": null,\n        \"InternalDocumentId\": null,\n        \"DmaDocumentId\": null,\n        \"SendingCounter\": null,\n        \"Document\": null,\n        \"LastName\": null,\n        \"FirstName\": null,\n        \"EmailAddress\": null,\n        \"LinkedAccountInternalName\": null,\n        \"PostalAddress\": null\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/CreditNoteProcessing/api/CreateStandaloneManualCreditNote",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"CreditNoteProcessing",
+								"api",
+								"CreateStandaloneManualCreditNote"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Credit Note - 2 - 1- StartCreditNoteValidation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Labsite",
+								"value": " EUHAWE3",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "{{userName}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"CreditNoteCode\": \"{{gCreditNoteCode}}\",\n    \"OperatorCode\": null,\n    \"OperatorType\": 2,\n    \"WorkStation\": null\n}"
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/CreditNoteProcessing/api/StartCreditNoteValidation",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"CreditNoteProcessing",
+								"api",
+								"StartCreditNoteValidation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Credit Note - 3 - AddOrUpdateManualCreditNoteLine",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.environment.set(\"CreditNoteLineCode\", jsonData.CreatedOrUpdatedLine.CreditNoteLineCode);",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Labsite",
+								"value": " EUHAWE3",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "{{userName}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"CreditNoteLineCode\": \"00000000-0000-0000-0000-000000000000\",\n    \"CreditNoteCode\": \"{{gCreditNoteCode}}\",\n    \"Description\": \"Test1\",\n    \"Quantity\": 5,\n    \"UnitPrice\": -10.5,\n    \"Ttt\": 3,\n    \"BU\": null,\n    \"SubBU\": null\n}"
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/CreditNoteProcessing/api/AddOrUpdateManualCreditNoteLine",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"CreditNoteProcessing",
+								"api",
+								"AddOrUpdateManualCreditNoteLine"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Credit Note - 3 -2- AddOrUpdateManualCreditNoteLine",
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"CreditNoteLineCode\": \"{{CreditNoteLineCode}}\",\r\n    \"CreditNoteCode\": \"{{gCreditNoteCode}}\",\r\n    \"Description\": \"Test1\",\r\n    \"Quantity\": 5,\r\n    \"UnitPrice\": -10.50,\r\n    \"Ttt\": 3,\r\n    \"BU\": \"4-193\",\r\n    \"SubBU\": \"5-00890\",\r\n    \"AxSalesCategory\": \"S01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://eu50apvd396/IPWQ3/GENAURA/IPWCoreServices/1.0/IPW/CreditNoteProcessing/api/AddOrUpdateManualCreditNoteLine",
+							"protocol": "http",
+							"host": [
+								"eu50apvd396"
+							],
+							"path": [
+								"IPWQ3",
+								"GENAURA",
+								"IPWCoreServices",
+								"1.0",
+								"IPW",
+								"CreditNoteProcessing",
+								"api",
+								"AddOrUpdateManualCreditNoteLine"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Credit Note - 4 - StopCreditNoteValidation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Labsite",
+								"value": " EUHAWE3",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": " {{userName}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"CreditNoteCode\": \"{{gCreditNoteCode}}\",\n    \"OperatorCode\": null,\n    \"OperatorType\": 2,\n    \"WorkStation\": null\n}"
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/CreditNoteProcessing/api/StopCreditNoteValidation",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"CreditNoteProcessing",
+								"api",
+								"StopCreditNoteValidation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Credit Note - 2 - 2 - StartCreditNoteValidation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{serviceUserPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{serviceUserID}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Labsite",
+								"value": " EUHAWE3",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": " {{serviceUserID}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"CreditNoteCode\": \"{{gCreditNoteCode}}\",\n    \"OperatorCode\": null,\n    \"OperatorType\": 1,\n    \"WorkStation\": null\n}"
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/CreditNoteProcessing/api/StartCreditNoteValidation",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"CreditNoteProcessing",
+								"api",
+								"StartCreditNoteValidation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Credit Note - 5 - ValidateCreditNote",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{serviceUserPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{serviceUserID}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Labsite",
+								"value": " EUHAWE3",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "{{serviceUserID}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"CreditNoteCode\": \"{{gCreditNoteCode}}\",\n    \"OperatorCode\": null,\n    \"OperatorType\": 1,\n    \"WorkStation\": null\n}"
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/CreditNoteProcessing/api/ValidateCreditNote",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"CreditNoteProcessing",
+								"api",
+								"ValidateCreditNote"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Credit Note - 6 - StartIssueCreditNoteProcess",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{serviceUserPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{serviceUserID}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Labsite",
+								"value": " GENAURA",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": " {{serviceUserID}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"CreditNoteCode\": \"{{gCreditNoteCode}}\",\n    \"OperatorCode\": null,\n    \"OperatorType\": 1,\n    \"WorkStation\": null\n}"
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/CreditNoteProcessing/api/StartIssueCreditNoteProcess",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"CreditNoteProcessing",
+								"api",
+								"StartIssueCreditNoteProcess"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manual Credit Note - 7 - GetCreditNoteDetails",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"manualCreditNoteNumber1\", jsonData.FinalCreditNoteNumber);",
+									"",
+									"",
+									"pm.test(\"Manual Credit Note Final number: \"+ jsonData.FinalCreditNoteNumber, function () { });"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "domain",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Puid",
+								"type": "text",
+								"value": "{{userName}}"
+							},
+							{
+								"key": "Labsite",
+								"type": "text",
+								"value": "EUHAWE3"
+							}
+						],
+						"url": {
+							"raw": "{{ipwURL}}/IPW/CreditNoteProcessing/api/GetCreditNoteDetails/{{gCreditNoteCode}}",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"CreditNoteProcessing",
+								"api",
+								"GetCreditNoteDetails",
+								"{{gCreditNoteCode}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "QA Standard Invoice",
+			"item": [
+				{
+					"name": "0. qa/DeleteOrder",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								},
+								{
+									"key": "domain",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"{{orderCode}}\"]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{workbenchURL}}/api/qa/DeleteOrder",
+							"host": [
+								"{{workbenchURL}}"
+							],
+							"path": [
+								"api",
+								"qa",
+								"DeleteOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1. invoices/saveInvoiceDetailsPerOrder",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"//var sampleContainerDisplayCode1 = labCode + sc + \"-01\";",
+									"//var sampleContainerCode1 = sampleContainerDisplayCode1.replace(/[-]/g,'');",
+									"",
+									"//pm.environment.set(\"sampleContainerCode1\", sampleContainerCode1);",
+									"//pm.environment.set(\"sampleContainerDisplayCode1\", sampleContainerDisplayCode1);",
+									"",
+									"pm.environment.set(\"sampleCode1\", pm.environment.get(\"orderCode\") + \"01\");",
+									"pm.environment.set(\"invoiceableItem1\", pm.environment.get(\"orderCode\") + \"item001\");",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"OrderCode\": \"{{orderCode}}\",\n    \"InvoiceGroupingRuleCode\": \"GENAURA-IGR-018\",\n    \"CcfCode\": \"CCF1\",\n    \"CcfVersion\": \"1\",\n    \"AcfCode\": \"Acf1\",\n    \"BillToAccountCode\": \"A00199322VXT\",\n    \"ServiceRecipientAccountCode\": \"A00199322VXT\",\n    \"OrderType\": \"1\",\n    \"InvoiceTemplateCode\": \"{{invoiceTemplateCode}}\",\n    \"InvoiceLanguage\": \"en\",\n    \"OriginalRecipientContactCode\": \"C00032504202R\",\n    \"OriginalRecipientAddressCode\": \"C00032504202RAdr01\",\n    \"OriginalRecipientSendingChannel\": \"1\",\n    \"OrderCreationDate\": \"2017-04-19T00:00:00.000Z\",\n    \"PriceDeterminationDate\": \"2017-04-19T00:00:00.000Z\",\n    \"AutoValidationRuleSetCode\": \"\",\n    \"ClientPurchaseOrderCode\": \"POCode1\",\n    \"CustomerInvoicingReference\": \"CIR1\",\n    \"CustomerProjectCode\": \"A00199322VXTPROJ\",\n    \"OrderCustomer\": \"A00199322VXT\",\n    \"OrderMasterContact\": \"C00032504202R\",\n    \"ProjectQuotationCode\": \"\",\n    \"QuotationVersionNumber\": \"\",\n    \"Sender\": \"C00032504202R\",\n    \"Prebarcoded\": \"\",\n    \"invoiceCopyRecipients\": [\n        {\n            \"ContactCode\": \"C00032504202R\",\n            \"AddressCode\": \"C00032504202RAdr01\",\n            \"SendingChannel\": \"2\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{workbenchURL}}/api/invoices/saveInvoiceDetailsPerOrder",
+							"host": [
+								"{{workbenchURL}}"
+							],
+							"path": [
+								"api",
+								"invoices",
+								"saveInvoiceDetailsPerOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. msmq/send Copy",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});",
+									"",
+									"setTimeout(function(){}, [25000]); "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Queue\": {\n        \"QueueName\": \"ipw_samstartorupdate\",\n        \"FormatName\": \"ESB\"\n    },\n    \"Message\": {\n        \"OrderCode\": \"{{orderCode}}\",\n        \"SamplesWithDeliveredServices\":[ \n         { \n            \"SampleCode\":\"{{sampleCode1}}\",\n            \"SampleBasedInvoiceableItems\":[ \n               \"{{invoiceableItem1}}\"\n            ],\n            \"TatNotReached\":false\n         }\n      ],\n      \"OrderBasedInvoiceableItems\":[ ]\n        \n        \n        \n        \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{workbenchURL}}/api/eesb/send",
+							"host": [
+								"{{workbenchURL}}"
+							],
+							"path": [
+								"api",
+								"eesb",
+								"send"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. SearchForInvoices",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var maxNumberOfTries = 10;",
+									"if(!pm.environment.get(\"tries\")) ",
+									"   { pm.environment.set(\"tries\", 1);",
+									"   }",
+									"",
+									"pm.test(\"Status code is 200, tries number: \"+pm.environment.get(\"tries\"), function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var jsonData = pm.response.json();",
+									"setTimeout(function(){}, [10000]); ",
+									"",
+									"if (pm.environment.get(\"tries\") < maxNumberOfTries)",
+									"{",
+									"    const tries = parseInt(pm.environment.get(\"tries\"), 10);",
+									"    pm.environment.set(\"tries\", tries + 1);",
+									"",
+									"    if (pm.response.to.have.status(200) && jsonData.InvoiceListItemDetails.length === 0) ",
+									"    {   ",
+									"        ",
+									"        postman.setNextRequest(\"3. SearchForInvoices\");",
+									"        setTimeout(function(){}, [1000]);",
+									"    } else ",
+									"    {",
+									"        pm.environment.set(\"gInvoiceCode\", jsonData.InvoiceListItemDetails[0].InvoiceCode); ",
+									"    }",
+									"}",
+									"else",
+									"{",
+									"    pm.environment.unset(\"tries\");",
+									"    pm.environment.set(\"gInvoiceCode\", \"\");",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "domain",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Labsite",
+								"value": " EUHAWE3",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": " WJY5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "CorrelationId",
+								"value": " {{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"InvoiceNumbers\": null,\n    \"BillToAccountCodes\": null,\n    \"CreatedByPuid\": null,\n    \"CreatedBySystem\": false,\n    \"ValidatedByPuid\": null,\n    \"ValidatedBySystem\": false,\n    \"LockedByPuid\": null,\n    \"BlockedBy\": null,\n    \"OrderCode\": \"{{orderCode}}\",\n    \"SampleCode\": \"{{sampleCode1}}\",\n    \"AmOperatorCodes\": null,\n    \"AsmOperatorCodes\": null,\n    \"CreationDateFrom\": null,\n    \"CreationDateTo\": null,\n    \"ValidationDateFrom\": null,\n    \"ValidationDateTo\": null,\n    \"SearchInvoiceStatusFilter\": [\n        1,\n        2,\n        4,\n        8,\n        32,\n        16,\n        256,\n        64,\n        128\n    ],\n    \"ChangeAction\": null,\n    \"PossessSubscriptionBillingConfigurationCode\": null,\n    \"PossessRequestForPaymentNumber\": null,\n    \"AnalyticalReportNumbers\": null,\n    \"SearchInvoiceType\": [\n        1,\n        2,\n        8,\n        4,\n        16\n    ],\n    \"IsOverviewCall\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/SearchForInvoicesWithDetails",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"SearchForInvoicesWithDetails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4 - ReviseInvoice",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "WJY5",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n   \"InvoiceCode\":\"{{gInvoiceCode}}\",\r\n   \"OperatorType\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/ReviseInvoice",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"ReviseInvoice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5 - SetTemporaryInvoiceToCompleted",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "WJY5",
+								"type": "text"
+							},
+							{
+								"key": "Labsite",
+								"value": "EUHAWE3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"InvoiceCode\": \"{{gInvoiceCode}}\",\n    \"OperatorType\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/SetTemporaryInvoiceToCompleted",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"SetTemporaryInvoiceToCompleted"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.1 CompletePartialInvoice",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "WJY5",
+								"type": "text"
+							},
+							{
+								"key": "Labsite",
+								"value": "EUHAWE3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"InvoiceCode\": \"{{gInvoiceCode}}\",\n    \"OperatorType\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/CompletePartialInvoice",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"CompletePartialInvoice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6 - StartManualValidation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "WJY5",
+								"type": "text"
+							},
+							{
+								"key": "Labsite",
+								"value": "EUHAWE3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"InvoiceCode\": \"{{gInvoiceCode}}\",\n    \"OperatorType\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/StartManualValidation",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"StartManualValidation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7 - FinishManualValidation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "E4ZI",
+								"type": "text"
+							},
+							{
+								"key": "Labsite",
+								"value": "GENAURA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"InvoiceCode\": \"{{gInvoiceCode}}\",\n    \"OperatorType\": 1\n}"
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/FinishManualValidation",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"FinishManualValidation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "8 - StartIssueInvoiceProcess",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "ntlm",
+							"ntlm": [
+								{
+									"key": "password",
+									"value": "{{userPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{userName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Puid",
+								"value": "WJY5",
+								"type": "text"
+							},
+							{
+								"key": "Labsite",
+								"value": "EUHAWE3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"InvoiceCode\": \"{{gInvoiceCode}}\",\n    \"OperatorType\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/StartIssueInvoiceProcess",
+							"host": [
+								"{{ipwURL}}"
+							],
+							"path": [
+								"IPW",
+								"InvoiceProcessing",
+								"api",
+								"StartIssueInvoiceProcess"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "9 - GetInvoiceDetails",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"standardInvoiceNumber1\", jsonData.FinalInvoiceNumber);",
+							"",
+							"pm.test(\"Standard Invoice Final number: \"+ jsonData.FinalInvoiceNumber, function () { });",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "ntlm",
+					"ntlm": [
+						{
+							"key": "username",
+							"value": "{{userName}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{userPassword}}",
+							"type": "string"
+						},
+						{
+							"key": "domain",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Puid",
+						"type": "text",
+						"value": "WJY5"
+					},
+					{
+						"key": "Labsite",
+						"type": "text",
+						"value": "EUHAWE3"
+					}
+				],
+				"url": {
+					"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/GetInvoiceDetails/{{gInvoiceCode}}",
+					"host": [
+						"{{ipwURL}}"
+					],
+					"path": [
+						"IPW",
+						"InvoiceProcessing",
+						"api",
+						"GetInvoiceDetails",
+						"{{gInvoiceCode}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Display all Invoice and Credit Note created",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"ManualInvoice: \"+ pm.environment.get (\"manualInvoiceNumber1\"), function () { });",
+							"pm.test(\"ManualCreditNote: \"+ pm.environment.get (\"manualCreditNoteNumber1\"), function () { });",
+							"pm.test(\"StandardInvoice: \"+ pm.environment.get (\"standardInvoiceNumber1\"), function () { });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "ntlm",
+					"ntlm": [
+						{
+							"key": "password",
+							"value": "{{userPassword}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{userName}}",
+							"type": "string"
+						},
+						{
+							"key": "domain",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{ipwURL}}/IPW/InvoiceProcessing/api/GetCounters/",
+					"host": [
+						"{{ipwURL}}"
+					],
+					"path": [
+						"IPW",
+						"InvoiceProcessing",
+						"api",
+						"GetCounters",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "ntlm",
+		"ntlm": [
+			{
+				"key": "password",
+				"value": "{{userPassword}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{userName}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
